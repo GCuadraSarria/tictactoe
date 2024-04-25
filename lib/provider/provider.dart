@@ -81,4 +81,15 @@ class TicTacToeProvider extends ChangeNotifier {
     }
     notifyListeners();
   }
+
+  // restart game
+  void restartGame() {
+    _isXturn = true;
+    _xPlayerWon = false;
+    _oPlayerWon = false;
+    _xPlayer.clear();
+    _oPlayer.clear();
+    _gameFinish = false;
+    notifyListeners();
+  }
 }

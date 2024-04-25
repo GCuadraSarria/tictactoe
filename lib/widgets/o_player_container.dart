@@ -21,7 +21,7 @@ class OPlayerContainer extends StatelessWidget {
         padding: const EdgeInsets.all(5.0),
         child: Center(
           child: SvgPicture.asset(
-            'lib/assets/tanjiro.svg',
+            'lib/assets/characters/tanjiro.svg',
           )
               .animate(target: provider.oPlayerWon ? 1 : 0)
               .rotate(

@@ -25,16 +25,13 @@ class TurnBox extends StatelessWidget {
       width: screenSize.width * 0.3,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10.0),
-        border: Border.all(
-          color: Colors.white,
-          width: 2.5,
-        ),
+        color: turn ? Colors.white : Colors.transparent,
       ),
     child: Padding(
-        padding: turn ? const EdgeInsets.all(5.0) : const EdgeInsets.all(12.0),
+        padding: const EdgeInsets.all(5.0),
         child: Center(
           child: SvgPicture.asset(
-            'lib/assets/$picture.svg',
+            'lib/assets/characters/$picture.svg',
           ),
         ),
       ),);

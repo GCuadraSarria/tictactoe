@@ -5,11 +5,9 @@ import 'package:provider/provider.dart';
 import 'package:tic_tac_toe/provider/provider.dart';
 
 class XPlayerContainer extends StatelessWidget {
-
   const XPlayerContainer({
     super.key,
   });
-
 
   @override
   Widget build(BuildContext context) {
@@ -21,9 +19,11 @@ class XPlayerContainer extends StatelessWidget {
         padding: const EdgeInsets.all(5.0),
         child: Center(
           child: SvgPicture.asset(
-            'lib/assets/nezuko.svg',
+            'lib/assets/characters/nezuko.svg',
           )
-              .animate(target: provider.xPlayerWon ? 1 : 0,)
+              .animate(
+                target: provider.xPlayerWon ? 1 : 0,
+              )
               .rotate(
                 duration: const Duration(milliseconds: 500),
                 end: 0.10,

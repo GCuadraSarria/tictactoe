@@ -22,11 +22,73 @@ class _HomePageState extends State<HomePage> {
 
     return SafeArea(
       child: Scaffold(
-        body: Container(
-          color: const Color(0xFFFF644A),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+        appBar: AppBar(
+          elevation: 0,
+          toolbarHeight: 88.0,
+          backgroundColor: Colors.white,
+          title: const Row(
             children: [
+              Text(
+                'Ronda: ',
+                style: TextStyle(fontSize: 24.0, color: Color(0xFF636363)),
+              ),
+              Text(
+                '3/7',
+                style: TextStyle(
+                    fontSize: 24.0,
+                    color: Color(0xFF636363),
+                    fontWeight: FontWeight.bold),
+              ),
+            ],
+          ),
+          actions: [
+            Row(
+              children: [
+                IconButton.outlined(
+                  onPressed: () => provider.restartGame(),
+                  icon: const Icon(Icons.refresh_outlined),
+                ),
+                const SizedBox(width: 10.0),
+                IconButton.outlined(
+                  onPressed: () {},
+                  icon: const Icon(Icons.exit_to_app_outlined),
+                ),
+                const SizedBox(width: 10.0),
+              ],
+            )
+          ],
+        ),
+        body: Container(
+          decoration: const BoxDecoration(
+              image: DecorationImage(
+            image: AssetImage("lib/assets/background.png"),
+            fit: BoxFit.cover,
+          )),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Container(
+                width: 124.0,
+                height: 54.0,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(100),
+                ),
+                child: const Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(Icons.alarm),
+                      SizedBox(width: 10.0),
+                      Text(
+                        '0:15',
+                        style: TextStyle(
+                          fontSize: 32.0,
+                          color: Color(0xFF636363),
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ]),
+              ),
               Center(
                 child: DottedBorder(
                   borderType: BorderType.RRect,
@@ -74,7 +136,7 @@ class _HomePageState extends State<HomePage> {
                                         }
                                       : null,
                                   child: Container(
-                                    color: const Color(0xFFFF644A),
+                                    color: Colors.transparent,
                                   ),
                                 );
                               }
@@ -86,19 +148,28 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
               ),
-              const SizedBox(height: 28.0),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  TurnBox(
+              IntrinsicHeight(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    TurnBox(
                       screenSize: screenSize,
                       picture: 'nezuko',
-                      turn: provider.isXturn),
-                  TurnBox(
+                      turn: provider.isXturn,
+                    ),
+                    const SizedBox(width: 15.0),
+                    const VerticalDivider(
+                      color: Colors.white,
+                      thickness: 2.0,
+                    ),
+                    const SizedBox(width: 15.0),
+                    TurnBox(
                       screenSize: screenSize,
                       picture: 'tanjiro',
-                      turn: !provider.isXturn),
-                ],
+                      turn: !provider.isXturn,
+                    ),
+                  ],
+                ),
               ),
             ],
           ),
