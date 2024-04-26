@@ -5,11 +5,9 @@ import 'package:provider/provider.dart';
 import 'package:tic_tac_toe/provider/provider.dart';
 
 class OPlayerContainer extends StatelessWidget {
-
   const OPlayerContainer({
     super.key,
   });
-
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +19,7 @@ class OPlayerContainer extends StatelessWidget {
         padding: const EdgeInsets.all(5.0),
         child: Center(
           child: SvgPicture.asset(
-            'lib/assets/characters/tanjiro.svg',
+            'lib/assets/characters/character_${provider.oPlayerChar}.svg',
           )
               .animate(target: provider.oPlayerWon ? 1 : 0)
               .rotate(

@@ -7,19 +7,19 @@ class TurnBox extends StatelessWidget {
   const TurnBox({
     super.key,
     required this.screenSize,
-    required this.picture,
+    required this.pictureIndex,
     required this.turn,
   });
 
   final Size screenSize;
-  final String picture;
+  final int pictureIndex;
   final bool turn;
 
   @override
   Widget build(BuildContext context) {
     // provider
     final provider = Provider.of<TicTacToeProvider>(context);
-    
+
     return Container(
       height: screenSize.width * 0.3,
       width: screenSize.width * 0.3,
@@ -27,13 +27,14 @@ class TurnBox extends StatelessWidget {
         borderRadius: BorderRadius.circular(10.0),
         color: turn ? Colors.white : Colors.transparent,
       ),
-    child: Padding(
+      child: Padding(
         padding: const EdgeInsets.all(5.0),
         child: Center(
           child: SvgPicture.asset(
-            'lib/assets/characters/$picture.svg',
+            'lib/assets/characters/character_$pictureIndex.svg',
           ),
         ),
-      ),);
+      ),
+    );
   }
 }

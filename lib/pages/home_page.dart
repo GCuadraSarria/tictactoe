@@ -77,7 +77,11 @@ class _HomePageState extends State<HomePage> {
                 child: const Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Icon(Icons.alarm, color: Color(0xFF636363), size: 32.0,),
+                      Icon(
+                        Icons.alarm,
+                        color: Color(0xFF636363),
+                        size: 32.0,
+                      ),
                       SizedBox(width: 10.0),
                       Text(
                         '0:15',
@@ -154,7 +158,7 @@ class _HomePageState extends State<HomePage> {
                   children: [
                     TurnBox(
                       screenSize: screenSize,
-                      picture: 'nezuko',
+                      pictureIndex: provider.xPlayerChar,
                       turn: provider.isXturn,
                     ),
                     const SizedBox(width: 15.0),
@@ -165,7 +169,7 @@ class _HomePageState extends State<HomePage> {
                     const SizedBox(width: 15.0),
                     TurnBox(
                       screenSize: screenSize,
-                      picture: 'tanjiro',
+                      pictureIndex: provider.oPlayerChar,
                       turn: !provider.isXturn,
                     ),
                   ],

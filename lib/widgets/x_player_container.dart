@@ -19,7 +19,7 @@ class XPlayerContainer extends StatelessWidget {
         padding: const EdgeInsets.all(5.0),
         child: Center(
           child: SvgPicture.asset(
-            'lib/assets/characters/nezuko.svg',
+            'lib/assets/characters/character_${provider.xPlayerChar}.svg',
           )
               .animate(
                 target: provider.xPlayerWon ? 1 : 0,

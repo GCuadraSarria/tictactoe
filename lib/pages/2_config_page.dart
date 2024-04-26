@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
-import 'package:tic_tac_toe/pages/2_config_page.dart';
+import 'package:tic_tac_toe/pages/pages.dart';
 import 'package:tic_tac_toe/provider/provider.dart';
 
-class FirstConfigPage extends StatefulWidget {
-  const FirstConfigPage({super.key});
+class SecondConfigPage extends StatefulWidget {
+  const SecondConfigPage({super.key});
 
   @override
-  State<FirstConfigPage> createState() => _FirstConfigPageState();
+  State<SecondConfigPage> createState() => _SecondConfigPageState();
 }
 
-class _FirstConfigPageState extends State<FirstConfigPage> {
+class _SecondConfigPageState extends State<SecondConfigPage> {
   @override
   Widget build(BuildContext context) {
     // provider
@@ -39,7 +39,7 @@ class _FirstConfigPageState extends State<FirstConfigPage> {
                 height: 56.0,
                 child: const Center(
                   child: Text(
-                    '1/3 CONFIGURAR PARTIDA',
+                    '2/3 CONFIGURAR PARTIDA',
                     style: TextStyle(
                       fontFamily: 'Animeace2',
                       fontSize: 18,
@@ -49,7 +49,7 @@ class _FirstConfigPageState extends State<FirstConfigPage> {
                   ),
                 ),
               ),
-              SvgPicture.asset('lib/assets/config_step_1.svg'),
+              SvgPicture.asset('lib/assets/config_step_2.svg'),
               Container(
                 padding: const EdgeInsets.symmetric(
                   horizontal: 15.0,
@@ -66,7 +66,7 @@ class _FirstConfigPageState extends State<FirstConfigPage> {
                     const Row(
                       children: [
                         Text(
-                          'Nombre jugador 1',
+                          'Nombre jugador 2',
                           style: TextStyle(
                             fontSize: 18,
                             color: Colors.black,
@@ -142,20 +142,34 @@ class _FirstConfigPageState extends State<FirstConfigPage> {
                                 'lib/assets/characters/character_$index.svg'),
                           );
                         } else {
-                          return InkWell(
-                            onTap: () => provider.characterSelect(index, 0),
-                            child: Container(
+                          if (provider.oPlayerChar == index) {
+                            return Container(
                               padding: const EdgeInsets.all(2.0),
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(4.0),
                                 border: Border.all(
-                                  color: const Color(0xFFD9D9D9),
+                                  color: const Color(0xFF2B96EE),
                                 ),
                               ),
                               child: SvgPicture.asset(
                                   'lib/assets/characters/character_$index.svg'),
-                            ),
-                          );
+                            );
+                          } else {
+                            return InkWell(
+                              onTap: () => provider.characterSelect(index, 1),
+                              child: Container(
+                                padding: const EdgeInsets.all(2.0),
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(4.0),
+                                  border: Border.all(
+                                    color: const Color(0xFFD9D9D9),
+                                  ),
+                                ),
+                                child: SvgPicture.asset(
+                                    'lib/assets/characters/character_$index.svg'),
+                              ),
+                            );
+                          }
                         }
                       },
                     ),
@@ -166,14 +180,13 @@ class _FirstConfigPageState extends State<FirstConfigPage> {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(
-                        builder: (context) => const SecondConfigPage()),
+                    MaterialPageRoute(builder: (context) => const HomePage()),
                   );
                 },
                 child: const Padding(
                   padding: EdgeInsets.all(8.0),
                   child: Text(
-                    'IR A JUGADOR 2',
+                    'IR A LA PARTIDA',
                     style: TextStyle(
                       fontSize: 16,
                       fontFamily: 'Animeace2',
