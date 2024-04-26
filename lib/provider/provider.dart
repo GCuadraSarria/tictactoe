@@ -37,6 +37,14 @@ class TicTacToeProvider extends ChangeNotifier {
   final List<int> _oPlayer = [];
   List<int> get oPlayer => _oPlayer;
 
+  // x player character
+  int _xPlayerChar = 0;
+  int get xPlayerChar => _xPlayerChar;
+
+  // o player character
+  int _oPlayerChar = 0;
+  int get oPlayerChar => _oPlayerChar;
+
   // player won
   bool _gameFinish = false;
   bool get gameFinish => _gameFinish;
@@ -90,6 +98,14 @@ class TicTacToeProvider extends ChangeNotifier {
     _xPlayer.clear();
     _oPlayer.clear();
     _gameFinish = false;
+    notifyListeners();
+  }
+
+  // select character
+  void characterSelect(int index, int player) {
+    player == 0
+        ? _xPlayerChar = index
+        : _oPlayerChar = index;
     notifyListeners();
   }
 }

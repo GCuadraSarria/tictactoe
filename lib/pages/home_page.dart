@@ -77,7 +77,7 @@ class _HomePageState extends State<HomePage> {
                 child: const Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Icon(Icons.alarm),
+                      Icon(Icons.alarm, color: Color(0xFF636363), size: 32.0,),
                       SizedBox(width: 10.0),
                       Text(
                         '0:15',
